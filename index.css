@@ -189,7 +189,7 @@ nav {
 
 #menu-pizzas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 15px;
   justify-content: center;
 }
@@ -753,6 +753,7 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 50px;
+    padding: 0;
   }
 
   nav.active {
@@ -798,7 +799,7 @@ hr {
     margin: 10vw;
     max-width: 80%;
   }
-  
+
   .status-bar {
     display: flex;
     flex-wrap: wrap;
