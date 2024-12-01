@@ -1,0 +1,683 @@
+@import url("https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap");
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 15vh;
+  padding: 5px 10%;
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  background-color: #fffefef3;
+}
+
+.logo-header img {
+  height: 150px;
+  width: auto;
+  cursor: pointer;
+}
+
+.logo-header img:hover {
+  transform: scale(1.2);
+  transition: 0.3s;
+}
+
+.nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+.nav-link li {
+  list-style: none;
+}
+
+.nav-link li a {
+  text-decoration: none;
+  color: rgb(71, 69, 69);
+  font-weight: 500;
+  font-family: "Parkinsans", sans-serif;
+}
+
+.nav-link li a:hover {
+  font-size: large;
+  transition: 0.1s;
+  color: #ed1e10;
+  border-bottom: 2px solid;
+}
+
+.header div a button {
+  font-weight: 700;
+  color: white;
+  padding: 9px 25px;
+  background-color: #ed1e10;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: "Parkinsans", sans-serif;
+}
+
+.header div a button:hover {
+  transform: scale(1.2);
+  transition: 0.2s;
+  background-color: #b3190e;
+}
+
+#buttons-header {
+  display: flex;
+  gap: 10px;
+}
+
+
+/* Carrito Header */
+
+#btn-carrito button {
+  color: white;
+  background-color: #ed1e10;
+  width: 25px;
+  height: 37px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#btn-carrito button span {
+  color: #ed1e10;
+  position: absolute;
+  z-index: 5;
+  top: 0px; /* Ajusta para que quede encima del ícono */
+  right: 8px; 
+  background-color: white;
+  border-radius: 20px;
+  padding: 0 5px;
+}
+
+#btn-carrito button i {
+  font-size: larger;
+}
+
+/* Vista Carrito */
+
+#main-carrito-pizza {
+  display: none;
+  position: fixed;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(22, 22, 21, 0.623);
+}
+
+.vista-carrito {
+  background-color: #dbdbdb;
+  border: 2px rgb(90, 89, 89) solid;
+  padding: 50px;
+  height: 100vh;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+#carrito-pizzas {
+  display: grid;
+  gap: 20px;
+}
+
+
+.vistaPizzaCarrito {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%; /* Asegura que todos los items ocupen el mismo ancho */
+}
+
+.vistaPizzaCarrito img {
+  height: 100px;
+  width: 150px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.header-carrito i:hover {
+  transform: scale(1.3);
+  transition: 0.2s;
+}
+
+.infoVistaPizzaCarrito {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+.infoVistaPizzaCarrito div h1 {
+  font-size: 2vh;
+  font-family: "Parkinsans", sans-serif;
+  color: #302e29;
+  text-align: start;
+}
+
+.infoVistaPizzaCarrito div h3 {
+  font-size: 2vh;
+  font-family: "Parkinsans", sans-serif;
+  color: #da2d2d;
+}
+
+.infoVistaPizzaCarrito div i:hover {
+  transform: scale(1.3);
+  transition: 0.5s;
+}
+
+hr {
+  border: 0;
+  height: 0.5px;
+  background-color: #302e29;
+  width: 100%;
+}
+
+.orderPizzas {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.orderPizzas p {
+  font-size: 2vh;
+  font-family: "Parkinsans", sans-serif;
+  color: #302e29;
+}
+
+.orderPizzas button {
+  font-weight: 700;
+  color: white;
+  padding: 9px 25px;
+  background-color: #ed1e10;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: "Parkinsans", sans-serif;
+}
+
+.orderPizzas button:hover {
+  transform: scale(1.05);
+  transition: 0.2s;
+  background-color: #b3190e;
+}
+
+/* Reastrear Pedido */
+
+.modal-rastrear-pedido {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.modal-content-rastrear-pedido {
+  background-color: white;
+  padding: 45px;
+  border-radius: 12px;
+  width: 450px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+  transform: scale(1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-content-rastrear-pedido:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  color: #ed1e10;
+}
+
+.modal-content-rastrear-pedido h2 {
+  font-size: 3vh;
+  font-family: "Parkinsans", sans-serif;
+  color: #302e29;
+  margin-bottom: 30px;
+}
+
+.modal-content-rastrear-pedido input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.modal-content-rastrear-pedido input:focus {
+  outline: none;
+  border-color: #ed1e10;
+}
+
+.buttonBuscarPedido {
+  font-weight: 600;
+  color: white;
+  margin-top: 10px;
+  padding: 15px 35px;
+  background-color: #ed1e10;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: "Parkinsans", sans-serif;
+}
+
+.buttonBuscarPedido:hover {
+  background-color: #ed1e10;
+  transform: translateY(-2px);
+}
+
+.buttonBuscarPedido:active {
+  transform: translateY(1px);
+}
+
+#resultadoPedido {
+  margin-top: 20px;
+  text-align: left;
+}
+
+#resultadoPedido h3 {
+  margin: 0;
+  font-size: 2.5vh;
+  font-family: "Parkinsans", sans-serif;
+  color: #302e29;
+}
+
+
+.status-bar {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.status-step {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.status-step::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -15px;
+  transform: translateY(-50%) rotate(45deg);
+  width: 15px;
+  height: 15px;
+  background-color: inherit;
+}
+
+.status-step:last-child::after {
+  display: none;
+}
+
+.status-pendiente {
+  background-color: #302e29;
+}
+
+.status-preparando {
+  background-color: #ed1e10;
+}
+
+.status-enviado {
+  background-color: #3498db;
+}
+
+.status-entregado {
+  background-color: #2ecc71;
+}
+
+
+/* Contacto */
+
+.modal-contact {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-contact-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 500px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+}
+
+.modal-contact-content h2 {
+  margin: 0;
+  font-size: 3vh;
+  font-family: "Parkinsans", sans-serif;
+  color: #302e29;
+  margin-bottom: 15px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input, 
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: none;
+}
+
+.contact-form textarea {
+  min-height: 100px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.contact-form button {
+  background-color: #ed1e10;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #302e29;
+}
+
+
+/* Section Home */
+
+.home-section {
+  margin: 0px 10%;
+  padding: 50px 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 90vh;
+}
+
+.home-img-section {
+  width: auto;
+  height: 30vh;
+}
+
+.home-section div h1 {
+  margin: 0;
+  font-size: 10vh;
+  font-family: "Parkinsans", sans-serif;
+  color: #302e29;
+}
+
+.home-section div h1 a {
+  margin: 0;
+  font-size: 10vh;
+  color: #ed1e10;
+}
+
+.home-section img {
+  width: auto;
+  height: 70vh;
+}
+
+.home-section div a button {
+  font-weight: 600;
+  color: white;
+  margin-top: 50px;
+  padding: 15px 35px;
+  background-color: #ed1e10;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: "Parkinsans", sans-serif;
+}
+
+.home-section div a button:hover {
+  cursor: pointer;
+  background-color: #b3190e;
+  transform: scale(1.2);
+  transition: 0.2s;
+}
+
+/* Section Menú */
+
+.menu-section {
+  display: flex;
+  margin: 0px 10%;
+  padding-bottom: 80px;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.menu-section div h3 {
+  margin: 0;
+  font-size: 5vh;
+  font-family: "Parkinsans", sans-serif;
+  color: #302e29;
+}
+
+.titulo-menu p {
+  margin: 0 0 30px 0;
+  font-size: 2vh;
+  font-family: "Parkinsans", sans-serif;
+  color: #302e29;
+}
+
+#menu-pizzas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 50px;
+}
+
+.nombre-pizza {
+  color: #ed1e10;
+}
+
+.pizzas-list {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(245, 243, 240, 0.623);
+    border-radius: 30px;
+    border: 1px rgb(199, 198, 198) solid;
+}
+
+.pizzas-list:hover {
+  transform: scale(1.03);
+  transition: 0.5s;
+}
+
+.pizzas-list img {
+    width: auto;
+    height: 30vh;
+    border-radius: 30px 30px 0 0;
+}
+
+.pizzas-info {
+    padding: 0 15px;
+}
+
+.pizzas-info h1 {
+    margin: 0 0 10px 0;
+    font-family: "Parkinsans", sans-serif;
+    margin: 10px 0;
+    font-size: 3vh;
+    color: #ed1e10;
+}
+
+.pizzas-info h3 {
+  margin: 0;
+  font-size: 5vh;
+  font-family: "Parkinsans", sans-serif;
+  color: #302e29;
+}
+
+.pizzas-info p { 
+    margin: 0 0 10px 0;
+    font-size: 2vh;
+    font-family: "Parkinsans", sans-serif;
+    color: #302e29;
+}
+
+
+
+
+
+
+/* Modal Pizza Individual */
+
+#main-modal-pizza {
+   display: none;
+   position: fixed; 
+   z-index: 1000;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(22, 22, 21, 0.623);
+}
+
+#modal-pizza {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background-color: #f9f7f6;
+  border-radius: 30px;
+  border: 2px rgb(167, 163, 163) solid;
+  padding: 40px;
+}
+
+.modal-info {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: auto;
+}
+
+.modal-header i:hover {
+  transform: scale(1.3);
+  transition: 0.2s;
+}
+
+#modal-pizza img {
+  height: 40vh;
+  border-radius: 20px;
+}
+
+#modal-pizza h1 {
+  margin: 0 0 10px 0;
+  font-family: "Parkinsans", sans-serif;
+  margin: 10px 0;
+  font-size: 3vh;
+  color: #ed1e10;
+}
+
+#modal-pizza h3 {
+  margin: 0;
+  font-size: 5vh;
+  font-family: "Parkinsans", sans-serif;
+  color: #302e29;
+}
+
+#modal-pizza p {
+  margin: 0 0 10px 0;
+  font-size: 2vh;
+  font-family: "Parkinsans", sans-serif;
+  color: #302e29;
+}
+
+#modal-pizza button {
+  font-weight: 600;
+  color: white;
+  margin-top: 20px;
+  padding: 15px 35px;
+  background-color: #ed1e10;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: "Parkinsans", sans-serif;
+  display: 	flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#modal-pizza button:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
