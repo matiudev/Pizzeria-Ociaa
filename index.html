@@ -13,91 +13,132 @@
     />
     <link rel="stylesheet" href="./index.css" />
     <script defer src="./index.js"></script>
-    <link rel="icon" href="./img/logo.png">
+    <link rel="icon" href="./img/logo.png" />
   </head>
   <body>
-    
     <header id="header" class="header">
-        <div class="logo-header">
-            <img src="./img/logo.png" alt="Logo Pizzeria">
-        </div>
-        <nav>
-            <ul class="nav-link">
-                <li><a href="">Home</a></li>
-                <li><a href="#menu-section">Menu</a></li>
-                <li><a onclick="rastrearPedidoModal()">Rastrear Pedido</a></li>
-            </ul>
-        </nav>
-        <div id="buttons-header">
-            <a onclick="abrirModalContacto()" class="btn"><button>Contact</button></a>
-        </div>
+      <div class="logo-header">
+        <img src="./img/logo.png" alt="Logo Pizzeria" />
+      </div>
+
+      <nav>
+        <ul class="nav-link">
+          <li><a href="">Home</a></li>
+          <li><a href="#menu-section">Menu</a></li>
+          <li><a onclick="rastrearPedidoModal()">Rastrear Pedido</a></li>
+        </ul>
+      </nav>
+      <div id="buttons-header">
+        <a onclick="abrirModalContacto()" class="btn"
+          ><button>Contact</button></a
+        >
+      </div>
+      <!-- Botón de menú hamburguesa -->
+      <button class="menu-toggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+        <!-- Ícono de Font Awesome -->
+      </button>
     </header>
 
-    <main>
-        <section class="home-section">
-            <div>
-                <h1> <a>Bienvenido</a> al mundo de la pizza fresca y sabrosa</h1>
-                <a href="" class="btn"><button>Elige una Pizza</button></a>
-            </div>
-                <img src="./img/home.png" alt="">
-        </section>
+    <main class="mainPage">
+      <section class="home-section">
+        <div>
+          <h1><a>Bienvenido</a> al mundo de la pizza fresca y sabrosa</h1>
+          <a href="#menu-pizzas" class="btn"
+            ><button>Elige una Pizza</button></a
+          >
+        </div>
+        <img src="./img/home.png" alt="" />
+      </section>
 
-        <section id="menu-section" class="menu-section">
-            <div class="titulo-menu">
-                <h3>Menú de Pizzas</h3>
-                <p>Nosotros hemos seleccionado para ti los sabores más exquisitos alrededor del mundo</p>
-            </div>
+      <section id="menu-section" class="menu-section">
+        <div class="titulo-menu">
+          <h3>Menú de Pizzas</h3>
+          <p>
+            Nosotros hemos seleccionado para ti los sabores más exquisitos
+            alrededor del mundo
+          </p>
+        </div>
 
-            <div id="menu-pizzas"></div>
-        </section>
+        <div id="menu-pizzas"></div>
+      </section>
     </main>
 
-    <div id="main-modal-pizza">
-        <div id="modal-pizza"></div>
-    </div>
+    <section id="main-modal-pizza">
+      <div id="modal-pizza"></div>
+    </section>
 
     <section id="main-carrito-pizza">
-        <div class="vista-carrito">
-            <div class="header-carrito" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-                <h2 style="font-size: 3.5vh; font-family:'Parkinsans', sans-serif; color: #302e29;">Carrito</h2>
-                <i class="fa-solid fa-circle-xmark" style="color: #ed1e10;" onclick="cerrarCarrito()"></i>
-            </div>
-            <div id="carrito-pizzas">
-
-            </div>
-            <hr>
-            <div class="orderPizzas">
-                <p id="precioTotalOrdenPizzas"></p>
-                <button>Ordenar</button>
-            </div>
+      <div class="vista-carrito">
+        <div
+          class="header-carrito"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+          "
+        >
+          <h2
+            style="
+              font-size: 3.5vh;
+              font-family: 'Parkinsans', sans-serif;
+              color: #302e29;
+            "
+          >
+            Carrito
+          </h2>
+          <i
+            class="fa-solid fa-circle-xmark"
+            style="color: #ed1e10"
+            onclick="cerrarCarrito()"
+          ></i>
         </div>
+        <div id="carrito-pizzas"></div>
+        <hr />
+        <div class="orderPizzas">
+          <p id="precioTotalOrdenPizzas"></p>
+          <button>Ordenar</button>
+        </div>
+      </div>
     </section>
 
     <section id="modal-rastrear-pedido" class="modal-rastrear-pedido">
-        <div class="modal-content-rastrear-pedido">
-            <button onclick="cerrarModalRastrearPedido()" class="modal-close-btn">&times;</button>
-            <h2>Rastrear pedido</h2>
-            <input id="numeroPedido" type="number" placeholder="Ingrese número de pedido">
-            <button class="buttonBuscarPedido" onclick="rastrearPedido()">Buscar</button>
-            <div id="resultadoPedido"></div>
-        </div>
+      <div class="modal-content-rastrear-pedido">
+        <button onclick="cerrarModalRastrearPedido()" class="modal-close-btn">
+          &times;
+        </button>
+        <h2>Rastrear pedido</h2>
+        <input
+          id="numeroPedido"
+          type="number"
+          placeholder="Ingrese número de pedido"
+        />
+        <button class="buttonBuscarPedido" onclick="rastrearPedido()">
+          Buscar
+        </button>
+        <div id="resultadoPedido"></div>
+      </div>
     </section>
 
     <section id="modal-contact" class="modal-contact">
-        <div class="modal-contact-content">
-            <button onclick="cerrarModalContacto()" class="modal-close-btn">&times;</button>
-            <h2>Rastrear pedido</h2>
-            <form class="contact-form">
-                <input type="text" placeholder="Nombre" required>
-                <input type="tel" placeholder="Teléfono" required>
-                <input type="email" placeholder="Correo electrónico" required>
-                <textarea id="mensaje" placeholder="Escribe tu mensaje" oninput="ajustarAltura(this)"></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
+      <div class="modal-contact-content">
+        <button onclick="cerrarModalContacto()" class="modal-close-btn">
+          &times;
+        </button>
+        <h2>Rastrear pedido</h2>
+        <form class="contact-form">
+          <input type="text" placeholder="Nombre" required />
+          <input type="tel" placeholder="Teléfono" required />
+          <input type="email" placeholder="Correo electrónico" required />
+          <textarea
+            id="mensaje"
+            placeholder="Escribe tu mensaje"
+            oninput="ajustarAltura(this)"
+          ></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
     </section>
   </body>
 </html>
-
-
-

@@ -342,3 +342,10 @@ function cerrarModalContacto() {
 function abrirModalContacto() {
   document.getElementById('modal-contact').style.display = 'flex';
 }
+
+
+
+document.querySelector(".menu-toggle").addEventListener("click", function () {
+  const nav = document.querySelector("nav");
+  nav.classList.toggle("active");
+});
